@@ -45,10 +45,10 @@ var utils = {
     spawnCreeps: (counts) => {
         
         if (Game.spawns['HQ'].energy > 200) {
-            if (counts.harvesters < 1)
+            if (counts.harvesters < 3)
                 Game.spawns['HQ'].createCreep([WORK, CARRY, MOVE], undefined, {role: 'harvester'})
             
-            if (counts.upgraders < 1)
+            if (counts.upgraders < 3)
                 Game.spawns['HQ'].createCreep([WORK, CARRY, MOVE], undefined, {role: 'upgrader'})
                 
             if (counts.builders < 3)
