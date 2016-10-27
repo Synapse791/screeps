@@ -4,6 +4,13 @@ var SpawnManager = require('spawnManager');
 
 
 module.exports.loop = () => {
+  let myRoom = [];
+  for (var name in Game.rooms) {
+    if (Game.rooms[name].controller.my) {
+      myRoom.push(Game.rooms[name])
+    }
+  }
+
   for (var name in Game.rooms) {
     var room = Game.rooms[name]
     var creeps = room.find(FIND_CREEPS)
