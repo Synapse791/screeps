@@ -23,9 +23,9 @@ class SpawnManager {
       } else if (counts.workers < this.requirements.workers) {
         console.log('creating new worker')
         this.roleManager.roles.worker.create(this.spawns[0]);
-      } else if (counts.workers < this.requirements.workers) {
+      } else if (counts.builders < this.requirements.builders) {
         console.log('creating new builder')
-        this.roleManager.roles.worker.create(this.spawns[0]);
+        this.roleManager.roles.builder.create(this.spawns[0]);
       }
     }
   }
