@@ -14,12 +14,15 @@ class RoleManager {
   }
 
   process(creep) {
-    if (creep.memory && creep.memory.role == 'miner')
+    if (creep.memory && creep.memory.role == 'miner') {
       this.roles.miner.assign(creep)
-    if (creep.memory && creep.memory.role == 'worker')
+    }
+    if (creep.memory && creep.memory.role == 'worker') {
       this.roles.worker.assign(creep)
-    if (creep.memory && creep.memory.role == 'builder')
+    }
+    if (creep.memory && creep.memory.role == 'builder') {
       this.roles.builder.assign(creep)
+    }
   }
 
   getCounts() {

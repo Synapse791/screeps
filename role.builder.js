@@ -23,11 +23,13 @@ class BuilderRole {
   }
 
   assign(creep) {
-    if (creep.carry.energy == 0)
-      if (creep.withdraw(this.storage[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+    if (creep.carry.energy == 0) {
+      if (creep.withdraw(this.storage[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
         creep.moveTo(this.storage[0]);
-    else if (creep.build(this.sites[0]) == ERR_NOT_IN_RANGE)
-      creep.moveTo(this.sites[0])
+      }
+    } else if (creep.build(this.sites[0]) == ERR_NOT_IN_RANGE) {
+      creep.moveTo(this.sites[0]);
+    }
   }
 
   count() {

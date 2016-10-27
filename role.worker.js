@@ -17,11 +17,13 @@ class WorkerRole {
   }
 
   assign(creep) {
-    if (creep.carry.energy == 0)
-      if (creep.withdraw(this.storage[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+    if (creep.carry.energy == 0) {
+      if (creep.withdraw(this.storage[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
         creep.moveTo(this.storage[0]);
-    else if (creep.upgradeController(this.room.controller) == ERR_NOT_IN_RANGE)
+      }
+    } else if (creep.upgradeController(this.room.controller) == ERR_NOT_IN_RANGE) {
       creep.moveTo(this.room.controller)
+    }
   }
 
   count() {

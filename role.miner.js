@@ -23,11 +23,13 @@ class MinerRole {
   }
 
   assign(creep) {
-    if (creep.carry.energy < creep.carryCapacity)
-      if (creep.harvest(this.sources[0]) == ERR_NOT_IN_RANGE)
+    if (creep.carry.energy < creep.carryCapacity) {
+      if (creep.harvest(this.sources[0]) == ERR_NOT_IN_RANGE) {
         creep.moveTo(this.sources[0]);
-    else if (creep.transfer(this.storage[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-        creep.moveTo(this.storage[0])
+      }
+    } else if (creep.transfer(this.storage[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+      creep.moveTo(this.storage[0]);
+    }
   }
 
   count() {
