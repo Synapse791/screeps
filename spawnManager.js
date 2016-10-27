@@ -1,15 +1,15 @@
 var RoleManager = require('roleManager');
 
 class SpawnManager {
-  constructor(room, requirements) {
+  constructor(room, config) {
       this.room = room;
-      this.requirements = requirements;
+      this.requirements = config.requirements;
 
       this.roleManager = new RoleManager(room);
 
       this.spawns = this.room.find(FIND_STRUCTURES, {
           filter: (s) => {
-              return s.structureType == 'spawn';
+              return s.structureType == 'spawn' && s.enery > config.minEnergy;
           }
       });
   }

@@ -1,5 +1,6 @@
 module.exports = {
-  creeps: {
+  spawnManager: {
+    minEnergy: 250,
     requirements: {
       miners: 4,
       workers: 2,

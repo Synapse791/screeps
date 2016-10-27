@@ -8,7 +8,7 @@ module.exports.loop = () => {
     var room = Game.rooms[name]
     var creeps = room.find(FIND_CREEPS)
 
-    var spawnManager = new SpawnManager(room, config.creeps.requirements);
+    var spawnManager = new SpawnManager(room, config.spawnManager);
     var roleManager = new RoleManager(room);
 
     spawnManager.run(room)
