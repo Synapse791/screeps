@@ -16,7 +16,7 @@ class BuilderRole {
     });
 
     this.sites = this.room.find(FIND_CONSTRUCTION_SITES, {
-      filter: (s) {
+      filter: (s) => {
         return s.progress < s.progressTotal
       }
     })
