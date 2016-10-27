@@ -11,7 +11,8 @@ class BuilderRole {
 
     this.storage = this.room.find(FIND_STRUCTURES, {
       filter: (s) => {
-        return (s.structureType == STRUCTURE_SPAWN || s.structureType == STRUCTURE_EXTENSION) && s.energy > 0
+        // TODO same as worker
+        return s.structureType == STRUCTURE_EXTENSION && s.energy > 0
       }
     });
 
