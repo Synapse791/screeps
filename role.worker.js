@@ -13,7 +13,7 @@ class WorkerRole {
       filter: (s) => {
         // TODO check if there are any extensions and use spawn if not
         // Some for of lock would be useful
-        return s.structureType == STRUCTURE_EXTENSION && s.energy > 0
+        return (s.structureType == STRUCTURE_SPAWN || s.structureType == STRUCTURE_EXTENSION) && s.energy > 0
       }
     });
   }
