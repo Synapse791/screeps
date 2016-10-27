@@ -9,13 +9,13 @@ class SpawnManager {
 
       this.spawns = this.room.find(FIND_STRUCTURES, {
           filter: (s) => {
-              return s.structureType == 'spawn' && s.enery > config.minEnergy;
+              return s.structureType == STRUCTURE_SPAWN && s.energy > config.minEnergy;
           }
       });
   }
 
   run() {
-    if (this.spawns) {
+    if (this.spawns.length > 0) {
       let counts = this.roleManager.getCounts();
       if (counts.miners < this.requirements.miners) {
         console.log('creating new miner')
