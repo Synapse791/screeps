@@ -1,25 +1,19 @@
+var repositories = {
+  creep: require('repository.creep'),
+  energy: require('repository.energy'),
+  structure: require('repository.structure')
+};
+
 class MinerRole {
 
   constructor(room) {
     this.room = room;
 
-    this.miners = this.room.find(FIND_CREEPS, {
-      filter: (c) => {
-        return c.memory && c.memory.role == 'miner'
-      }
-    });
+    this.miners = repositories.creep.findMyCreepsInRoomByRole(this.room, 'miner');
 
-    this.sources = this.room.find(FIND_SOURCES, {
-      filter: (s) => {
-        return s.energy > 0
-      }
-    });
+    this.sources = repositories.energy.findNaturalEnergyInRoom(this.room);
 
-    this.storage = this.room.find(FIND_STRUCTURES, {
-      filter: (s) => {
-        return (s.structureType == STRUCTURE_SPAWN || s.structureType == STRUCTURE_EXTENSION) && s.energy < s.energyCapacity
-      }
-    });
+    this.storage = repositories.structure.findAvailableStorageInRoom(this.room);
   }
 
   assign(creep) {
@@ -38,7 +32,7 @@ class MinerRole {
 
   create(spawn) {
     if (spawn.energy > 250) {
-      spawn.createCreep([WORK, CARRY, MOVE], undefined, {role: 'miner'})
+      spawn.createCreep([WORK, CARRY, MOVE], undefined, {role: 'miner', home: spawn})
     }
   }
 }

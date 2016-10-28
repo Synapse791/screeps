@@ -2,8 +2,13 @@ var config = require('config');
 var RoleManager = require('roleManager');
 var SpawnManager = require('spawnManager');
 
-
 module.exports.loop = () => {
+  for (let name in Memory.creeps) {
+    if (!Game.creeps[name]) {
+      delete Memory.creeps[name];
+    }
+  }
+
   let myRoom = [];
   for (var name in Game.rooms) {
     if (Game.rooms[name].controller.my) {
@@ -23,6 +28,5 @@ module.exports.loop = () => {
     for (var key in creeps) {
       roleManager.process(creeps[key]);
     }
-
   }
 };
